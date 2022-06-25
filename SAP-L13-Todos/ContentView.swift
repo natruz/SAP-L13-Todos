@@ -17,9 +17,9 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView() {
-            List(todos) { todo in
+            List($todos) { $todo in
                 NavigationLink {
-                    TodoDetailView()
+                    TodoDetailView(todo: $todo)
                 } label: {
                     HStack {
                         Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
