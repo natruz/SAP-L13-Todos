@@ -24,10 +24,12 @@ struct ContentView: View {
                         Text(todo.title)
                             .strikethrough(todo.isCompleted)
                             .foregroundColor(todo.isCompleted ? .gray : .black)
-                        Text(todo.details)
-                            .font(.caption)
-                            .strikethrough(todo.isCompleted)
-                            .foregroundColor(todo.isCompleted ? .gray : .black)
+                        if !todo.details.isEmpty {
+                            Text(todo.details)
+                                .font(.caption)
+                                .strikethrough(todo.isCompleted)
+                                .foregroundColor(todo.isCompleted ? .gray : .black)
+                        }
                     }
                 }
             }
