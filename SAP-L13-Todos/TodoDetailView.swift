@@ -14,6 +14,12 @@ struct TodoDetailView: View {
     var body: some View {
         VStack {
             TextField("Todo title", text: $todo.title)
+                .multilineTextAlignment(.center)
+                .frame(width: 300, height: 100)
+                .foregroundColor(.white)
+                .font(.title2)
+                .background(.gray)
+                .cornerRadius(15)
         }
     }
 }
