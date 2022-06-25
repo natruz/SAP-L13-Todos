@@ -18,17 +18,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView() {
             List(todos) { todo in
-                HStack {
-                    Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
-                    VStack(alignment: .leading) {
-                        Text(todo.title)
-                            .strikethrough(todo.isCompleted)
-                            .foregroundColor(todo.isCompleted ? .gray : .black)
-                        if !todo.details.isEmpty {
-                            Text(todo.details)
-                                .font(.caption)
+                NavigationLink {
+                    TodoDetailView()
+                } label: {
+                    HStack {
+                        Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
+                        VStack(alignment: .leading) {
+                            Text(todo.title)
                                 .strikethrough(todo.isCompleted)
                                 .foregroundColor(todo.isCompleted ? .gray : .black)
+                            if !todo.details.isEmpty {
+                                Text(todo.details)
+                                    .font(.caption)
+                                    .strikethrough(todo.isCompleted)
+                                    .foregroundColor(todo.isCompleted ? .gray : .black)
+                            }
                         }
                     }
                 }
