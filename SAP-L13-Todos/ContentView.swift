@@ -19,8 +19,10 @@ struct ContentView: View {
         NavigationView() {
             List(todos) { todo in
                 HStack {
-                    Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                    Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
                     Text(todo.title)
+                        .strikethrough(todo.isCompleted)
+                        .foregroundColor(todo.isCompleted ? .gray : .black)
                 }
             }
             .navigationTitle("Todos")
