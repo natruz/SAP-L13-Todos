@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     
     @State var todos = [
-        Todo(title: "Watch some Paw Patrol", isCompleted: true),
+        Todo(title: "Watch some Paw Patrol", details: "Episodes 42 & 69", isCompleted: true),
         Todo(title: "Conduct a giveaway"),
-        Todo(title: "Randomly deduct some points"),
+        Todo(title: "Randomly deduct some points", details: "200 from (groupname)"),
     ]
     
     var body: some View {
@@ -20,9 +20,15 @@ struct ContentView: View {
             List(todos) { todo in
                 HStack {
                     Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
-                    Text(todo.title)
-                        .strikethrough(todo.isCompleted)
-                        .foregroundColor(todo.isCompleted ? .gray : .black)
+                    VStack(alignment: .leading) {
+                        Text(todo.title)
+                            .strikethrough(todo.isCompleted)
+                            .foregroundColor(todo.isCompleted ? .gray : .black)
+                        Text(todo.details)
+                            .font(.caption)
+                            .strikethrough(todo.isCompleted)
+                            .foregroundColor(todo.isCompleted ? .gray : .black)
+                    }
                 }
             }
             .navigationTitle("Todos")
