@@ -20,6 +20,7 @@ struct ContentView: View {
             List($todos) { $todo in
                 NavigationLink {
                     TodoDetailView(todo: $todo)
+                        .offset(y: -50)
                 } label: {
                     HStack {
                         Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")

@@ -13,13 +13,15 @@ struct TodoDetailView: View {
     
     var body: some View {
         VStack {
-            TextField("Todo title", text: $todo.title)
-                .multilineTextAlignment(.center)
-                .frame(width: 300, height: 80)
-                .foregroundColor(.white)
-                .font(.title2)
-                .background(.gray)
-                .cornerRadius(15)
+            HStack {
+                TextField("Todo title", text: $todo.title)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .font(.title2)
+            }
+            .frame(width: 300, height: 80)
+            .cornerRadius(15)
+            .background(.gray)
             Spacer()
                 .frame(height: 30)
             Button {
@@ -29,6 +31,8 @@ struct TodoDetailView: View {
             } label: {
                 Text("Mark as \(todo.isCompleted ? "incomplete" : "complete")")
                     .font(.title3)
+                Image(systemName: todo.isCompleted ? "x.circle.fill" : "checkmark.circle.fill")
+                    .foregroundColor(todo.isCompleted ? .red : .green)
             }
         }
     }
