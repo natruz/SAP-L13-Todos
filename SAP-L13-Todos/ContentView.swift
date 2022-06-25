@@ -16,9 +16,11 @@ struct ContentView: View {
     ]
     
     var body: some View {
-            Text("")
+        List(todos) { todo in
+            Text(todo.title)
         }
     }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
