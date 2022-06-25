@@ -20,6 +20,14 @@ struct TodoDetailView: View {
                 .font(.title2)
                 .background(.gray)
                 .cornerRadius(15)
+            Button {
+                withAnimation {
+                    todo.isCompleted.toggle()
+                }
+            } label: {
+                Text("Mark as \(todo.isCompleted ? "incomplete" : "complete")")
+                    .font(.title3)
+            }
         }
     }
 }
