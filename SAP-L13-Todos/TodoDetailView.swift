@@ -13,13 +13,23 @@ struct TodoDetailView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                TextField("Todo title", text: $todo.title)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-                    .font(.title2)
+            VStack {
+                HStack {
+                    Text("Title:")
+                        .padding()
+                    TextField("Todo title", text: $todo.title)
+                }
+                .multilineTextAlignment(.center)
+                HStack {
+                    Text("Description:")
+                        .foregroundColor(.white)
+                        .padding()
+                    TextField("Todo Description", text: $todo.details)
+                        .foregroundColor(.white)
+                }
             }
-            .frame(width: 300, height: 80)
+            .padding()
+            .frame(width: 400)
             .cornerRadius(15)
             .background(.gray)
             Spacer()
@@ -40,6 +50,6 @@ struct TodoDetailView: View {
 
 struct TodoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoDetailView(todo: .constant(Todo(title: "Water the cat")))
+        TodoDetailView(todo: .constant(Todo(title: "Water the cat", details: "Blizzard, not Albee")))
     }
 }

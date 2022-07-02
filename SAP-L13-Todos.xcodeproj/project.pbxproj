@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EA08148286FD3B300B16E4B /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA08147286FD3B300B16E4B /* NewTodoView.swift */; };
 		2EC28F002866A6FE003306C7 /* SAP_L13_TodosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC28EFF2866A6FE003306C7 /* SAP_L13_TodosApp.swift */; };
 		2EC28F022866A6FE003306C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC28F012866A6FE003306C7 /* ContentView.swift */; };
 		2EC28F042866A702003306C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC28F032866A702003306C7 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EA08147286FD3B300B16E4B /* NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
 		2EC28EFC2866A6FE003306C7 /* SAP-L13-Todos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SAP-L13-Todos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC28EFF2866A6FE003306C7 /* SAP_L13_TodosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAP_L13_TodosApp.swift; sourceTree = "<group>"; };
 		2EC28F012866A6FE003306C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				2EC28EFF2866A6FE003306C7 /* SAP_L13_TodosApp.swift */,
 				2EC28F012866A6FE003306C7 /* ContentView.swift */,
+				2EA08147286FD3B300B16E4B /* NewTodoView.swift */,
 				2EC28F0F2866B5AA003306C7 /* TodoDetailView.swift */,
 				2EC28F0D2866A7E8003306C7 /* Todo.swift */,
 				2EC28F032866A702003306C7 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				2EC28F022866A6FE003306C7 /* ContentView.swift in Sources */,
 				2EC28F0E2866A7E8003306C7 /* Todo.swift in Sources */,
 				2EC28F002866A6FE003306C7 /* SAP_L13_TodosApp.swift in Sources */,
+				2EA08148286FD3B300B16E4B /* NewTodoView.swift in Sources */,
 				2EC28F102866B5AB003306C7 /* TodoDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

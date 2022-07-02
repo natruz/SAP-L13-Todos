@@ -14,31 +14,55 @@ struct ContentView: View {
         Todo(title: "Conduct a giveaway"),
         Todo(title: "Randomly deduct some points", details: "200 from (groupname)"),
     ]
+    @State var isSheetPresented = false
     
     var body: some View {
         NavigationView() {
-            List($todos) { $todo in
-                NavigationLink {
-                    TodoDetailView(todo: $todo)
-                        .offset(y: -50)
-                } label: {
-                    HStack {
-                        Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
-                        VStack(alignment: .leading) {
-                            Text(todo.title)
-                                .strikethrough(todo.isCompleted)
-                                .foregroundColor(todo.isCompleted ? .gray : .black)
-                            if !todo.details.isEmpty {
-                                Text(todo.details)
-                                    .font(.caption)
+            List {
+                ForEach($todos) { $todo in
+                    NavigationLink {
+                        TodoDetailView(todo: $todo)
+                            .offset(y: -50)
+                    } label: {
+                        HStack {
+                            Image(systemName: todo.isCompleted ? "checkmark.square.fill" : "square")
+                            VStack(alignment: .leading) {
+                                Text(todo.title)
                                     .strikethrough(todo.isCompleted)
                                     .foregroundColor(todo.isCompleted ? .gray : .black)
+                                if !todo.details.isEmpty {
+                                    Text(todo.details)
+                                        .font(.caption)
+                                        .strikethrough(todo.isCompleted)
+                                        .foregroundColor(todo.isCompleted ? .gray : .black)
+                                }
                             }
                         }
                     }
                 }
+                .onDelete { indexSet in
+                    todos.remove(atOffsets: indexSet)
+                }
+                .onMove { indices, newOffset in
+                    todos.move(fromOffsets: indices, toOffset: newOffset)
+                }
             }
             .navigationTitle("Todos")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isSheetPresented = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            NewTodoView(todos: $todos)
         }
     }
 }
