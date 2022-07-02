@@ -14,7 +14,7 @@ struct TodoDetailView: View {
     var body: some View {
         VStack {
             VStack {
-                HStack {
+                HStack(alignment: .center) {
                     Text("Title:")
                         .padding()
                     TextField("Todo title", text: $todo.title)

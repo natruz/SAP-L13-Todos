@@ -10,9 +10,12 @@ import SwiftUI
 struct ContentView: View {
     
     @State var todos = [
+        Todo(title: "Here's a task title", details: "And it's description"),
+        /* Random Todos
         Todo(title: "Watch some Paw Patrol", details: "Episodes 42 & 69", isCompleted: true),
         Todo(title: "Conduct a giveaway"),
         Todo(title: "Randomly deduct some points", details: "200 from (groupname)"),
+         */
     ]
     @State var isSheetPresented = false
     
